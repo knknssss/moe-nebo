@@ -1,0 +1,281 @@
+/* style.css — общий стиль для всех страниц сайта «Моё небо» */
+
+:root {
+  --bg: #0b1026;
+  --bg-soft: #121a38;
+  --card: #17203f;
+  --text: #e9edf9;
+  --muted: #9aa6c7;
+  --accent: #ffd166;
+  --accent-2: #7cc6fe;
+  --border: rgba(255, 255, 255, 0.1);
+  --radius: 14px;
+  --max-width: 1000px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+  font-size: 17px;
+  line-height: 1.7;
+  color: var(--text);
+  background-color: var(--bg);
+  background-image:
+    radial-gradient(circle at 15% 10%, rgba(124, 198, 254, 0.14), transparent 45%),
+    radial-gradient(circle at 85% 0%, rgba(255, 209, 102, 0.12), transparent 40%),
+    radial-gradient(circle at 50% 100%, rgba(120, 90, 255, 0.12), transparent 55%);
+  background-attachment: fixed;
+}
+
+/* ---------- Шапка и навигация ---------- */
+
+.site-header {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 28px 20px 10px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.logo {
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--accent);
+}
+
+.nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.nav a {
+  display: inline-block;
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  color: var(--muted);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: color 0.2s, border-color 0.2s, background-color 0.2s;
+}
+
+.nav a:hover {
+  color: var(--text);
+  border-color: var(--accent-2);
+}
+
+.nav a.active {
+  color: #0b1026;
+  background-color: var(--accent);
+  border-color: var(--accent);
+  font-weight: 600;
+}
+
+/* ---------- Основной контент ---------- */
+
+main {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 10px 20px 60px;
+}
+
+.hero {
+  padding: 40px 0 20px;
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 32px;
+}
+
+h1 {
+  font-size: clamp(1.9rem, 5vw, 2.9rem);
+  line-height: 1.2;
+  margin: 0 0 16px;
+}
+
+h2 {
+  font-size: clamp(1.3rem, 3.5vw, 1.7rem);
+  margin: 44px 0 16px;
+  padding-left: 14px;
+  border-left: 4px solid var(--accent);
+}
+
+h3 {
+  font-size: 1.12rem;
+  margin: 0 0 10px;
+  color: var(--accent-2);
+}
+
+.lead {
+  font-size: 1.15rem;
+  color: var(--muted);
+  margin: 0;
+  max-width: 70ch;
+}
+
+p {
+  margin: 0 0 16px;
+  max-width: 75ch;
+}
+
+a {
+  color: var(--accent-2);
+}
+
+a:hover {
+  color: var(--accent);
+}
+
+/* ---------- Карточки ---------- */
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 18px;
+  margin: 24px 0;
+}
+
+.card {
+  background-color: var(--card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 22px 22px 6px;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border-color: var(--accent-2);
+}
+
+.card p {
+  color: #cfd7ee;
+  font-size: 0.97rem;
+}
+
+/* ---------- Списки ---------- */
+
+.link-list,
+.steps {
+  padding-left: 22px;
+  max-width: 75ch;
+}
+
+.link-list li,
+.steps li {
+  margin-bottom: 14px;
+}
+
+ul {
+  max-width: 75ch;
+}
+
+/* ---------- Таблица ---------- */
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 24px 0;
+  background-color: var(--bg-soft);
+  border-radius: var(--radius);
+  overflow: hidden;
+  font-size: 0.96rem;
+}
+
+th,
+td {
+  padding: 12px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+}
+
+th {
+  background-color: rgba(124, 198, 254, 0.12);
+  color: var(--accent-2);
+  font-weight: 600;
+}
+
+tbody tr:last-child td {
+  border-bottom: none;
+}
+
+tbody tr:hover {
+  background-color: rgba(255, 255, 255, 0.04);
+}
+
+/* ---------- Заметки и предупреждения ---------- */
+
+.note {
+  padding: 14px 18px;
+  border-left: 4px solid var(--accent-2);
+  background-color: rgba(124, 198, 254, 0.08);
+  border-radius: 0 10px 10px 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.warning {
+  padding: 18px 20px;
+  border: 1px solid #ff8f6b;
+  background-color: rgba(255, 143, 107, 0.1);
+  border-radius: var(--radius);
+  color: #ffd9cd;
+}
+
+/* ---------- Подвал ---------- */
+
+.site-footer {
+  border-top: 1px solid var(--border);
+  padding: 24px 20px 40px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.site-footer p {
+  margin: 0 auto;
+}
+
+/* ---------- Адаптивность ---------- */
+
+@media (max-width: 600px) {
+  body {
+    font-size: 16px;
+  }
+
+  .site-header {
+    padding-top: 20px;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .nav {
+    justify-content: center;
+  }
+
+  .nav a {
+    padding: 7px 13px;
+    font-size: 0.88rem;
+  }
+
+  .hero {
+    padding-top: 24px;
+  }
+
+  th,
+  td {
+    padding: 10px 8px;
+    font-size: 0.88rem;
+  }
+}
